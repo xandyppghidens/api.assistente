@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente IA de Voz</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --bg-color: #020617;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-color: #f1f5f9;
+            --accent-color: #60a5fa;
+            --font-formal: 'Times New Roman', Georgia, serif;
+        }
+
+        body {
+            font-family: var(--font-formal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            color: var(--text-color);
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .chat-container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        .subtitle-area {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: 200px;
+            display: block;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+
+        #output-text {
+            font-size: 1.0rem;
+            line-height: 1.6;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            word-wrap: break-word;
+        }
+
+        /* Scrollbar Customizado */
+        .subtitle-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .subtitle-area::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .subtitle-area::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        #status {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 300;
+            color: var(--accent-color);
+            font-size: 0.85em;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+
+        button {
+            align-self: center;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        button:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-color);
+            opacity: 0.5;
+            /* Aumentado para aparecer melhor */
+            z-index: 10;
+            /* Garante que fique acima do fundo */
+        }
+
+        footer a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 1;
+            /* Brilha ao passar o mouse */
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 480px) {
+            #output-text {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                font-size: 0.6rem;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <h1>Interface de Voz</h1>
+        <div id="status">Pronto para iniciar</div>
+
+        <div class="subtitle-area">
+            <div id="output-text">Aguardando comando de voz...</div>
+        </div>
+
+        <button id="btn-speak">Ativar Microfone</button>
+    </div>
+
+    <footer>
+        <a href="https://www.instagram.com/xandy_vilela/" target="_blank">
+            Desenvolvido por Alexandre Vilela de Oliveira Junior
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
